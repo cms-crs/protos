@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+package activity;
+
+option go_package = "github.com/cms-crs/protos/activity";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/struct.proto";
+
+service ActivityService {
+  rpc GetEntityActivity(GetEntityActivityRequest) returns (GetEntityActivityResponse);
+  rpc GetUserActivity(GetUserActivityRequest) returns (GetUserActivityResponse);
+  rpc GetBoardActivity(GetBoardActivityRequest) returns (GetBoardActivityResponse);
+  rpc GetTeamActivity(GetTeamActivityRequest) returns (GetTeamActivityResponse);
+
+  rpc LogActivity(LogActivityRequest) returns (Activity);
+}
+
+message Activity {
+  string id = 1;
+  string entity_type = 2;
+  string entity_id = 3;
+  string action = 4;
+  string user_id = 5;
+  google.protobuf.Timestamp timestamp = 6;
+  google.protobuf.Struct details = 7;
+
+  string task_id = 8;
+  string board_id = 9;
+  string comment_id = 10;
+  string team_id = 11;
+}
+
+message GetEntityActivityRequest {
+  string entity_type = 1;
+  string entity_id = 2;
+  int32 page = 3;
+  int32 limit = 4;
+  google.protobuf.Timestamp from_date = 5;
+  google.protobuf.Timestamp to_date = 6;
+}
+
+message GetEntityActivityResponse {
+  repeated Activity activities = 1;
+  int32 total_count = 2;
+}
+
+message GetUserActivityRequest {
+  string user_id = 1;
+  int32 page = 2;
+  int32 limit = 3;
+  google.protobuf.Timestamp from_date = 4;
+  google.protobuf.Timestamp to_date = 5;
+}
+
+message GetUserActivityResponse {
+  repeated Activity activities = 1;
+  int32 total_count = 2;
+}
+
+message GetBoardActivityRequest {
+  string board_id = 1;
+  int32 page = 2;
+  int32 limit = 3;
+  google.protobuf.Timestamp from_date = 4;
+  google.protobuf.Timestamp to_date = 5;
+}
+
+message GetBoardActivityResponse {
+  repeated Activity activities = 1;
+  int32 total_count = 2;
+}
+
+message GetTeamActivityRequest {
+  string team_id = 1;
+  int32 page = 2;
+  int32 limit = 3;
+  google.protobuf.Timestamp from_date = 4;
+  google.protobuf.Timestamp to_date = 5;
+}
+
+message GetTeamActivityResponse {
+  repeated Activity activities = 1;
+  int32 total_count = 2;
+}
+
+message LogActivityRequest {
+  string entity_type = 1;
+  string entity_id = 2;
+  string action = 3;
+  string user_id = 4;
+  google.protobuf.Struct details = 5;
+  string task_id = 6;
+  string board_id = 7;
+  string comment_id = 8;
+  string team_id = 9;
+}
+
+message TaskMoveDetails {
+  string from_list_id = 1;
+  string to_list_id = 2;
+  string from_list_name = 3;
+  string to_list_name = 4;
+}
+
+message TaskUpdateDetails {
+  map<string, string> changed_fields = 1;
+  map<string, string> old_values = 2;
+}
+
+message UserAssignmentDetails {
+  string task_title = 1;
+  repeated string added_users = 2;
+  repeated string removed_users = 3;
+}
