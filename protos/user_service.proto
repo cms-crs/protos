@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-option go_package = "github.com/cms-crs/protos/user";
+package userservicev1;
+
+option go_package = "github.com/cms-crs/protos/userservicev1";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";

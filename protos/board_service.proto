@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package board;
+package boardservicev1;
 
-option go_package = "github.com/cms-crs/protos/board";
+option go_package = "github.com/cms-crs/protos/boardservicev1";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
@@ -19,23 +19,7 @@ service BoardService {
   rpc UpdateList(UpdateListRequest) returns (List);
   rpc DeleteList(DeleteListRequest) returns (google.protobuf.Empty);
   rpc ReorderLists(ReorderListsRequest) returns (google.protobuf.Empty);
-
-  rpc CreateTask(CreateTaskRequest) returns (Task);
-  rpc GetTask(GetTaskRequest) returns (Task);
-  rpc UpdateTask(UpdateTaskRequest) returns (Task);
-  rpc DeleteTask(DeleteTaskRequest) returns (google.protobuf.Empty);
-  rpc MoveTask(MoveTaskRequest) returns (Task);
-  rpc AssignUser(AssignUserRequest) returns (Task);
-  rpc UnassignUser(UnassignUserRequest) returns (Task);
-  rpc GetTasksForList(GetTasksForListRequest) returns (GetTasksForListResponse);
-  rpc GetTasksForUser(GetTasksForUserRequest) returns (GetTasksForUserResponse);
-
-  rpc CreateLabel(CreateLabelRequest) returns (Label);
-  rpc UpdateLabel(UpdateLabelRequest) returns (Label);
-  rpc DeleteLabel(DeleteLabelRequest) returns (google.protobuf.Empty);
   rpc GetBoardLabels(GetBoardLabelsRequest) returns (GetBoardLabelsResponse);
-  rpc AddLabelToTask(AddLabelToTaskRequest) returns (google.protobuf.Empty);
-  rpc RemoveLabelFromTask(RemoveLabelFromTaskRequest) returns (google.protobuf.Empty);
 }
 
 message Board {
@@ -150,92 +134,10 @@ message ListPosition {
   int32 position = 2;
 }
 
-message CreateTaskRequest {
-  string list_id = 1;
-  string title = 2;
-  string description = 3;
-  int32 position = 4;
-  google.protobuf.Timestamp due_date = 5;
-  string created_by = 6;
-}
-
-message GetTaskRequest {
-  string id = 1;
-}
-
-message UpdateTaskRequest {
-  string id = 1;
-  string title = 2;
-  string description = 3;
-  google.protobuf.Timestamp due_date = 4;
-}
-
-message DeleteTaskRequest {
-  string id = 1;
-}
-
-message MoveTaskRequest {
-  string task_id = 1;
-  string to_list_id = 2;
-  int32 position = 3;
-}
-
-message AssignUserRequest {
-  string task_id = 1;
-  string user_id = 2;
-}
-
-message UnassignUserRequest {
-  string task_id = 1;
-  string user_id = 2;
-}
-
-message GetTasksForListRequest {
-  string list_id = 1;
-}
-
-message GetTasksForListResponse {
-  repeated Task tasks = 1;
-}
-
-message GetTasksForUserRequest {
-  string user_id = 1;
-}
-
-message GetTasksForUserResponse {
-  repeated Task tasks = 1;
-}
-
-message CreateLabelRequest {
-  string board_id = 1;
-  string name = 2;
-  string color = 3;
-}
-
-message UpdateLabelRequest {
-  string id = 1;
-  string name = 2;
-  string color = 3;
-}
-
-message DeleteLabelRequest {
-  string id = 1;
-}
-
 message GetBoardLabelsRequest {
   string board_id = 1;
 }
 
 message GetBoardLabelsResponse {
   repeated Label labels = 1;
-}
-
-message AddLabelToTaskRequest {
-  string task_id = 1;
-  string label_id = 2;
-}
-
-message RemoveLabelFromTaskRequest {
-  string task_id = 1;
-  string label_id = 2;
 }
