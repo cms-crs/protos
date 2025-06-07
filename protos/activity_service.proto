@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package activityservicev1;
+package activityservice;
 
-option go_package = "github.com/cms-crs/protos/activityservicev1";
+option go_package = "github.com/cms-crs/protos/go/gen/activity_service";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/struct.proto";

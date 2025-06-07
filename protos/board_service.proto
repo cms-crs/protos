@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package boardservicev1;
+package boardservice;
 
-option go_package = "github.com/cms-crs/protos/boardservicev1";
+option go_package = "github.com/cms-crs/protos/go/gen/board_service";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
