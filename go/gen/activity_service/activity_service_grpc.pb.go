@@ -4,7 +4,7 @@
 // - protoc             v6.30.1
 // source: activity_service.proto
 
-package activity_service
+package activityservicev1
 
 import (
 	context "context"
@@ -19,11 +19,11 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ActivityService_GetEntityActivity_FullMethodName = "/activity.ActivityService/GetEntityActivity"
-	ActivityService_GetUserActivity_FullMethodName   = "/activity.ActivityService/GetUserActivity"
-	ActivityService_GetBoardActivity_FullMethodName  = "/activity.ActivityService/GetBoardActivity"
-	ActivityService_GetTeamActivity_FullMethodName   = "/activity.ActivityService/GetTeamActivity"
-	ActivityService_LogActivity_FullMethodName       = "/activity.ActivityService/LogActivity"
+	ActivityService_GetEntityActivity_FullMethodName = "/activityservicev1.ActivityService/GetEntityActivity"
+	ActivityService_GetUserActivity_FullMethodName   = "/activityservicev1.ActivityService/GetUserActivity"
+	ActivityService_GetBoardActivity_FullMethodName  = "/activityservicev1.ActivityService/GetBoardActivity"
+	ActivityService_GetTeamActivity_FullMethodName   = "/activityservicev1.ActivityService/GetTeamActivity"
+	ActivityService_LogActivity_FullMethodName       = "/activityservicev1.ActivityService/LogActivity"
 )
 
 // ActivityServiceClient is the client API for ActivityService service.
@@ -244,7 +244,7 @@ func _ActivityService_LogActivity_Handler(srv interface{}, ctx context.Context, 
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var ActivityService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "activity.ActivityService",
+	ServiceName: "activityservicev1.ActivityService",
 	HandlerType: (*ActivityServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

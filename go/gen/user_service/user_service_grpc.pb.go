@@ -4,7 +4,7 @@
 // - protoc             v6.30.1
 // source: user_service.proto
 
-package user_service
+package userservicev1
 
 import (
 	context "context"
@@ -20,21 +20,21 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	UserService_CreateUser_FullMethodName         = "/UserService/CreateUser"
-	UserService_GetUser_FullMethodName            = "/UserService/GetUser"
-	UserService_UpdateUser_FullMethodName         = "/UserService/UpdateUser"
-	UserService_DeleteUser_FullMethodName         = "/UserService/DeleteUser"
-	UserService_LoginUser_FullMethodName          = "/UserService/LoginUser"
-	UserService_GetUsersByIds_FullMethodName      = "/UserService/GetUsersByIds"
-	UserService_CreateTeam_FullMethodName         = "/UserService/CreateTeam"
-	UserService_GetTeam_FullMethodName            = "/UserService/GetTeam"
-	UserService_UpdateTeam_FullMethodName         = "/UserService/UpdateTeam"
-	UserService_DeleteTeam_FullMethodName         = "/UserService/DeleteTeam"
-	UserService_GetUserTeams_FullMethodName       = "/UserService/GetUserTeams"
-	UserService_AddUserToTeam_FullMethodName      = "/UserService/AddUserToTeam"
-	UserService_RemoveUserFromTeam_FullMethodName = "/UserService/RemoveUserFromTeam"
-	UserService_UpdateUserRole_FullMethodName     = "/UserService/UpdateUserRole"
-	UserService_GetTeamMembers_FullMethodName     = "/UserService/GetTeamMembers"
+	UserService_CreateUser_FullMethodName         = "/userservicev1.UserService/CreateUser"
+	UserService_GetUser_FullMethodName            = "/userservicev1.UserService/GetUser"
+	UserService_UpdateUser_FullMethodName         = "/userservicev1.UserService/UpdateUser"
+	UserService_DeleteUser_FullMethodName         = "/userservicev1.UserService/DeleteUser"
+	UserService_LoginUser_FullMethodName          = "/userservicev1.UserService/LoginUser"
+	UserService_GetUsersByIds_FullMethodName      = "/userservicev1.UserService/GetUsersByIds"
+	UserService_CreateTeam_FullMethodName         = "/userservicev1.UserService/CreateTeam"
+	UserService_GetTeam_FullMethodName            = "/userservicev1.UserService/GetTeam"
+	UserService_UpdateTeam_FullMethodName         = "/userservicev1.UserService/UpdateTeam"
+	UserService_DeleteTeam_FullMethodName         = "/userservicev1.UserService/DeleteTeam"
+	UserService_GetUserTeams_FullMethodName       = "/userservicev1.UserService/GetUserTeams"
+	UserService_AddUserToTeam_FullMethodName      = "/userservicev1.UserService/AddUserToTeam"
+	UserService_RemoveUserFromTeam_FullMethodName = "/userservicev1.UserService/RemoveUserFromTeam"
+	UserService_UpdateUserRole_FullMethodName     = "/userservicev1.UserService/UpdateUserRole"
+	UserService_GetTeamMembers_FullMethodName     = "/userservicev1.UserService/GetTeamMembers"
 )
 
 // UserServiceClient is the client API for UserService service.
@@ -585,7 +585,7 @@ func _UserService_GetTeamMembers_Handler(srv interface{}, ctx context.Context, d
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var UserService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "UserService",
+	ServiceName: "userservicev1.UserService",
 	HandlerType: (*UserServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

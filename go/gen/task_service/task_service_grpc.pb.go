@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.30.1
-// source: board_service.proto
+// source: task_service.proto
 
-package board_service
+package taskservicev1
 
 import (
 	context "context"
@@ -20,47 +20,26 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	BoardService_CreateBoard_FullMethodName         = "/board.BoardService/CreateBoard"
-	BoardService_GetBoard_FullMethodName            = "/board.BoardService/GetBoard"
-	BoardService_UpdateBoard_FullMethodName         = "/board.BoardService/UpdateBoard"
-	BoardService_DeleteBoard_FullMethodName         = "/board.BoardService/DeleteBoard"
-	BoardService_GetUserBoards_FullMethodName       = "/board.BoardService/GetUserBoards"
-	BoardService_GetTeamBoards_FullMethodName       = "/board.BoardService/GetTeamBoards"
-	BoardService_CreateList_FullMethodName          = "/board.BoardService/CreateList"
-	BoardService_UpdateList_FullMethodName          = "/board.BoardService/UpdateList"
-	BoardService_DeleteList_FullMethodName          = "/board.BoardService/DeleteList"
-	BoardService_ReorderLists_FullMethodName        = "/board.BoardService/ReorderLists"
-	BoardService_CreateTask_FullMethodName          = "/board.BoardService/CreateTask"
-	BoardService_GetTask_FullMethodName             = "/board.BoardService/GetTask"
-	BoardService_UpdateTask_FullMethodName          = "/board.BoardService/UpdateTask"
-	BoardService_DeleteTask_FullMethodName          = "/board.BoardService/DeleteTask"
-	BoardService_MoveTask_FullMethodName            = "/board.BoardService/MoveTask"
-	BoardService_AssignUser_FullMethodName          = "/board.BoardService/AssignUser"
-	BoardService_UnassignUser_FullMethodName        = "/board.BoardService/UnassignUser"
-	BoardService_GetTasksForList_FullMethodName     = "/board.BoardService/GetTasksForList"
-	BoardService_GetTasksForUser_FullMethodName     = "/board.BoardService/GetTasksForUser"
-	BoardService_CreateLabel_FullMethodName         = "/board.BoardService/CreateLabel"
-	BoardService_UpdateLabel_FullMethodName         = "/board.BoardService/UpdateLabel"
-	BoardService_DeleteLabel_FullMethodName         = "/board.BoardService/DeleteLabel"
-	BoardService_GetBoardLabels_FullMethodName      = "/board.BoardService/GetBoardLabels"
-	BoardService_AddLabelToTask_FullMethodName      = "/board.BoardService/AddLabelToTask"
-	BoardService_RemoveLabelFromTask_FullMethodName = "/board.BoardService/RemoveLabelFromTask"
+	BoardService_CreateTask_FullMethodName          = "/taskservicev1.BoardService/CreateTask"
+	BoardService_GetTask_FullMethodName             = "/taskservicev1.BoardService/GetTask"
+	BoardService_UpdateTask_FullMethodName          = "/taskservicev1.BoardService/UpdateTask"
+	BoardService_DeleteTask_FullMethodName          = "/taskservicev1.BoardService/DeleteTask"
+	BoardService_MoveTask_FullMethodName            = "/taskservicev1.BoardService/MoveTask"
+	BoardService_AssignUser_FullMethodName          = "/taskservicev1.BoardService/AssignUser"
+	BoardService_UnassignUser_FullMethodName        = "/taskservicev1.BoardService/UnassignUser"
+	BoardService_GetTasksForLists_FullMethodName    = "/taskservicev1.BoardService/GetTasksForLists"
+	BoardService_GetTasksForUser_FullMethodName     = "/taskservicev1.BoardService/GetTasksForUser"
+	BoardService_CreateLabel_FullMethodName         = "/taskservicev1.BoardService/CreateLabel"
+	BoardService_UpdateLabel_FullMethodName         = "/taskservicev1.BoardService/UpdateLabel"
+	BoardService_DeleteLabel_FullMethodName         = "/taskservicev1.BoardService/DeleteLabel"
+	BoardService_AddLabelToTask_FullMethodName      = "/taskservicev1.BoardService/AddLabelToTask"
+	BoardService_RemoveLabelFromTask_FullMethodName = "/taskservicev1.BoardService/RemoveLabelFromTask"
 )
 
 // BoardServiceClient is the client API for BoardService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type BoardServiceClient interface {
-	CreateBoard(ctx context.Context, in *CreateBoardRequest, opts ...grpc.CallOption) (*Board, error)
-	GetBoard(ctx context.Context, in *GetBoardRequest, opts ...grpc.CallOption) (*BoardWithLists, error)
-	UpdateBoard(ctx context.Context, in *UpdateBoardRequest, opts ...grpc.CallOption) (*Board, error)
-	DeleteBoard(ctx context.Context, in *DeleteBoardRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	GetUserBoards(ctx context.Context, in *GetUserBoardsRequest, opts ...grpc.CallOption) (*GetUserBoardsResponse, error)
-	GetTeamBoards(ctx context.Context, in *GetTeamBoardsRequest, opts ...grpc.CallOption) (*GetTeamBoardsResponse, error)
-	CreateList(ctx context.Context, in *CreateListRequest, opts ...grpc.CallOption) (*List, error)
-	UpdateList(ctx context.Context, in *UpdateListRequest, opts ...grpc.CallOption) (*List, error)
-	DeleteList(ctx context.Context, in *DeleteListRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	ReorderLists(ctx context.Context, in *ReorderListsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	CreateTask(ctx context.Context, in *CreateTaskRequest, opts ...grpc.CallOption) (*Task, error)
 	GetTask(ctx context.Context, in *GetTaskRequest, opts ...grpc.CallOption) (*Task, error)
 	UpdateTask(ctx context.Context, in *UpdateTaskRequest, opts ...grpc.CallOption) (*Task, error)
@@ -68,12 +47,11 @@ type BoardServiceClient interface {
 	MoveTask(ctx context.Context, in *MoveTaskRequest, opts ...grpc.CallOption) (*Task, error)
 	AssignUser(ctx context.Context, in *AssignUserRequest, opts ...grpc.CallOption) (*Task, error)
 	UnassignUser(ctx context.Context, in *UnassignUserRequest, opts ...grpc.CallOption) (*Task, error)
-	GetTasksForList(ctx context.Context, in *GetTasksForListRequest, opts ...grpc.CallOption) (*GetTasksForListResponse, error)
+	GetTasksForLists(ctx context.Context, in *GetTasksForListsRequest, opts ...grpc.CallOption) (*GetTasksForListsResponse, error)
 	GetTasksForUser(ctx context.Context, in *GetTasksForUserRequest, opts ...grpc.CallOption) (*GetTasksForUserResponse, error)
 	CreateLabel(ctx context.Context, in *CreateLabelRequest, opts ...grpc.CallOption) (*Label, error)
 	UpdateLabel(ctx context.Context, in *UpdateLabelRequest, opts ...grpc.CallOption) (*Label, error)
 	DeleteLabel(ctx context.Context, in *DeleteLabelRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	GetBoardLabels(ctx context.Context, in *GetBoardLabelsRequest, opts ...grpc.CallOption) (*GetBoardLabelsResponse, error)
 	AddLabelToTask(ctx context.Context, in *AddLabelToTaskRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	RemoveLabelFromTask(ctx context.Context, in *RemoveLabelFromTaskRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
@@ -84,106 +62,6 @@ type boardServiceClient struct {
 
 func NewBoardServiceClient(cc grpc.ClientConnInterface) BoardServiceClient {
 	return &boardServiceClient{cc}
-}
-
-func (c *boardServiceClient) CreateBoard(ctx context.Context, in *CreateBoardRequest, opts ...grpc.CallOption) (*Board, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Board)
-	err := c.cc.Invoke(ctx, BoardService_CreateBoard_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *boardServiceClient) GetBoard(ctx context.Context, in *GetBoardRequest, opts ...grpc.CallOption) (*BoardWithLists, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BoardWithLists)
-	err := c.cc.Invoke(ctx, BoardService_GetBoard_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *boardServiceClient) UpdateBoard(ctx context.Context, in *UpdateBoardRequest, opts ...grpc.CallOption) (*Board, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Board)
-	err := c.cc.Invoke(ctx, BoardService_UpdateBoard_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *boardServiceClient) DeleteBoard(ctx context.Context, in *DeleteBoardRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, BoardService_DeleteBoard_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *boardServiceClient) GetUserBoards(ctx context.Context, in *GetUserBoardsRequest, opts ...grpc.CallOption) (*GetUserBoardsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUserBoardsResponse)
-	err := c.cc.Invoke(ctx, BoardService_GetUserBoards_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *boardServiceClient) GetTeamBoards(ctx context.Context, in *GetTeamBoardsRequest, opts ...grpc.CallOption) (*GetTeamBoardsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTeamBoardsResponse)
-	err := c.cc.Invoke(ctx, BoardService_GetTeamBoards_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *boardServiceClient) CreateList(ctx context.Context, in *CreateListRequest, opts ...grpc.CallOption) (*List, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(List)
-	err := c.cc.Invoke(ctx, BoardService_CreateList_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *boardServiceClient) UpdateList(ctx context.Context, in *UpdateListRequest, opts ...grpc.CallOption) (*List, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(List)
-	err := c.cc.Invoke(ctx, BoardService_UpdateList_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *boardServiceClient) DeleteList(ctx context.Context, in *DeleteListRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, BoardService_DeleteList_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *boardServiceClient) ReorderLists(ctx context.Context, in *ReorderListsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, BoardService_ReorderLists_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
 }
 
 func (c *boardServiceClient) CreateTask(ctx context.Context, in *CreateTaskRequest, opts ...grpc.CallOption) (*Task, error) {
@@ -256,10 +134,10 @@ func (c *boardServiceClient) UnassignUser(ctx context.Context, in *UnassignUserR
 	return out, nil
 }
 
-func (c *boardServiceClient) GetTasksForList(ctx context.Context, in *GetTasksForListRequest, opts ...grpc.CallOption) (*GetTasksForListResponse, error) {
+func (c *boardServiceClient) GetTasksForLists(ctx context.Context, in *GetTasksForListsRequest, opts ...grpc.CallOption) (*GetTasksForListsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTasksForListResponse)
-	err := c.cc.Invoke(ctx, BoardService_GetTasksForList_FullMethodName, in, out, cOpts...)
+	out := new(GetTasksForListsResponse)
+	err := c.cc.Invoke(ctx, BoardService_GetTasksForLists_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -306,16 +184,6 @@ func (c *boardServiceClient) DeleteLabel(ctx context.Context, in *DeleteLabelReq
 	return out, nil
 }
 
-func (c *boardServiceClient) GetBoardLabels(ctx context.Context, in *GetBoardLabelsRequest, opts ...grpc.CallOption) (*GetBoardLabelsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBoardLabelsResponse)
-	err := c.cc.Invoke(ctx, BoardService_GetBoardLabels_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *boardServiceClient) AddLabelToTask(ctx context.Context, in *AddLabelToTaskRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
@@ -340,16 +208,6 @@ func (c *boardServiceClient) RemoveLabelFromTask(ctx context.Context, in *Remove
 // All implementations must embed UnimplementedBoardServiceServer
 // for forward compatibility.
 type BoardServiceServer interface {
-	CreateBoard(context.Context, *CreateBoardRequest) (*Board, error)
-	GetBoard(context.Context, *GetBoardRequest) (*BoardWithLists, error)
-	UpdateBoard(context.Context, *UpdateBoardRequest) (*Board, error)
-	DeleteBoard(context.Context, *DeleteBoardRequest) (*emptypb.Empty, error)
-	GetUserBoards(context.Context, *GetUserBoardsRequest) (*GetUserBoardsResponse, error)
-	GetTeamBoards(context.Context, *GetTeamBoardsRequest) (*GetTeamBoardsResponse, error)
-	CreateList(context.Context, *CreateListRequest) (*List, error)
-	UpdateList(context.Context, *UpdateListRequest) (*List, error)
-	DeleteList(context.Context, *DeleteListRequest) (*emptypb.Empty, error)
-	ReorderLists(context.Context, *ReorderListsRequest) (*emptypb.Empty, error)
 	CreateTask(context.Context, *CreateTaskRequest) (*Task, error)
 	GetTask(context.Context, *GetTaskRequest) (*Task, error)
 	UpdateTask(context.Context, *UpdateTaskRequest) (*Task, error)
@@ -357,12 +215,11 @@ type BoardServiceServer interface {
 	MoveTask(context.Context, *MoveTaskRequest) (*Task, error)
 	AssignUser(context.Context, *AssignUserRequest) (*Task, error)
 	UnassignUser(context.Context, *UnassignUserRequest) (*Task, error)
-	GetTasksForList(context.Context, *GetTasksForListRequest) (*GetTasksForListResponse, error)
+	GetTasksForLists(context.Context, *GetTasksForListsRequest) (*GetTasksForListsResponse, error)
 	GetTasksForUser(context.Context, *GetTasksForUserRequest) (*GetTasksForUserResponse, error)
 	CreateLabel(context.Context, *CreateLabelRequest) (*Label, error)
 	UpdateLabel(context.Context, *UpdateLabelRequest) (*Label, error)
 	DeleteLabel(context.Context, *DeleteLabelRequest) (*emptypb.Empty, error)
-	GetBoardLabels(context.Context, *GetBoardLabelsRequest) (*GetBoardLabelsResponse, error)
 	AddLabelToTask(context.Context, *AddLabelToTaskRequest) (*emptypb.Empty, error)
 	RemoveLabelFromTask(context.Context, *RemoveLabelFromTaskRequest) (*emptypb.Empty, error)
 	mustEmbedUnimplementedBoardServiceServer()
@@ -375,36 +232,6 @@ type BoardServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedBoardServiceServer struct{}
 
-func (UnimplementedBoardServiceServer) CreateBoard(context.Context, *CreateBoardRequest) (*Board, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateBoard not implemented")
-}
-func (UnimplementedBoardServiceServer) GetBoard(context.Context, *GetBoardRequest) (*BoardWithLists, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetBoard not implemented")
-}
-func (UnimplementedBoardServiceServer) UpdateBoard(context.Context, *UpdateBoardRequest) (*Board, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateBoard not implemented")
-}
-func (UnimplementedBoardServiceServer) DeleteBoard(context.Context, *DeleteBoardRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteBoard not implemented")
-}
-func (UnimplementedBoardServiceServer) GetUserBoards(context.Context, *GetUserBoardsRequest) (*GetUserBoardsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetUserBoards not implemented")
-}
-func (UnimplementedBoardServiceServer) GetTeamBoards(context.Context, *GetTeamBoardsRequest) (*GetTeamBoardsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetTeamBoards not implemented")
-}
-func (UnimplementedBoardServiceServer) CreateList(context.Context, *CreateListRequest) (*List, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateList not implemented")
-}
-func (UnimplementedBoardServiceServer) UpdateList(context.Context, *UpdateListRequest) (*List, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateList not implemented")
-}
-func (UnimplementedBoardServiceServer) DeleteList(context.Context, *DeleteListRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteList not implemented")
-}
-func (UnimplementedBoardServiceServer) ReorderLists(context.Context, *ReorderListsRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ReorderLists not implemented")
-}
 func (UnimplementedBoardServiceServer) CreateTask(context.Context, *CreateTaskRequest) (*Task, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTask not implemented")
 }
@@ -426,8 +253,8 @@ func (UnimplementedBoardServiceServer) AssignUser(context.Context, *AssignUserRe
 func (UnimplementedBoardServiceServer) UnassignUser(context.Context, *UnassignUserRequest) (*Task, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UnassignUser not implemented")
 }
-func (UnimplementedBoardServiceServer) GetTasksForList(context.Context, *GetTasksForListRequest) (*GetTasksForListResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetTasksForList not implemented")
+func (UnimplementedBoardServiceServer) GetTasksForLists(context.Context, *GetTasksForListsRequest) (*GetTasksForListsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTasksForLists not implemented")
 }
 func (UnimplementedBoardServiceServer) GetTasksForUser(context.Context, *GetTasksForUserRequest) (*GetTasksForUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTasksForUser not implemented")
@@ -440,9 +267,6 @@ func (UnimplementedBoardServiceServer) UpdateLabel(context.Context, *UpdateLabel
 }
 func (UnimplementedBoardServiceServer) DeleteLabel(context.Context, *DeleteLabelRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteLabel not implemented")
-}
-func (UnimplementedBoardServiceServer) GetBoardLabels(context.Context, *GetBoardLabelsRequest) (*GetBoardLabelsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetBoardLabels not implemented")
 }
 func (UnimplementedBoardServiceServer) AddLabelToTask(context.Context, *AddLabelToTaskRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddLabelToTask not implemented")
@@ -469,186 +293,6 @@ func RegisterBoardServiceServer(s grpc.ServiceRegistrar, srv BoardServiceServer)
 		t.testEmbeddedByValue()
 	}
 	s.RegisterService(&BoardService_ServiceDesc, srv)
-}
-
-func _BoardService_CreateBoard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateBoardRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BoardServiceServer).CreateBoard(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BoardService_CreateBoard_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).CreateBoard(ctx, req.(*CreateBoardRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BoardService_GetBoard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBoardRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BoardServiceServer).GetBoard(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BoardService_GetBoard_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).GetBoard(ctx, req.(*GetBoardRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BoardService_UpdateBoard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateBoardRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BoardServiceServer).UpdateBoard(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BoardService_UpdateBoard_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).UpdateBoard(ctx, req.(*UpdateBoardRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BoardService_DeleteBoard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteBoardRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BoardServiceServer).DeleteBoard(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BoardService_DeleteBoard_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).DeleteBoard(ctx, req.(*DeleteBoardRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BoardService_GetUserBoards_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUserBoardsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BoardServiceServer).GetUserBoards(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BoardService_GetUserBoards_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).GetUserBoards(ctx, req.(*GetUserBoardsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BoardService_GetTeamBoards_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTeamBoardsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BoardServiceServer).GetTeamBoards(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BoardService_GetTeamBoards_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).GetTeamBoards(ctx, req.(*GetTeamBoardsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BoardService_CreateList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateListRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BoardServiceServer).CreateList(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BoardService_CreateList_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).CreateList(ctx, req.(*CreateListRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BoardService_UpdateList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateListRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BoardServiceServer).UpdateList(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BoardService_UpdateList_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).UpdateList(ctx, req.(*UpdateListRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BoardService_DeleteList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteListRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BoardServiceServer).DeleteList(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BoardService_DeleteList_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).DeleteList(ctx, req.(*DeleteListRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BoardService_ReorderLists_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReorderListsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BoardServiceServer).ReorderLists(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BoardService_ReorderLists_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).ReorderLists(ctx, req.(*ReorderListsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
 }
 
 func _BoardService_CreateTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -777,20 +421,20 @@ func _BoardService_UnassignUser_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BoardService_GetTasksForList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTasksForListRequest)
+func _BoardService_GetTasksForLists_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTasksForListsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BoardServiceServer).GetTasksForList(ctx, in)
+		return srv.(BoardServiceServer).GetTasksForLists(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BoardService_GetTasksForList_FullMethodName,
+		FullMethod: BoardService_GetTasksForLists_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).GetTasksForList(ctx, req.(*GetTasksForListRequest))
+		return srv.(BoardServiceServer).GetTasksForLists(ctx, req.(*GetTasksForListsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -867,24 +511,6 @@ func _BoardService_DeleteLabel_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BoardService_GetBoardLabels_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBoardLabelsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BoardServiceServer).GetBoardLabels(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BoardService_GetBoardLabels_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).GetBoardLabels(ctx, req.(*GetBoardLabelsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _BoardService_AddLabelToTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddLabelToTaskRequest)
 	if err := dec(in); err != nil {
@@ -925,49 +551,9 @@ func _BoardService_RemoveLabelFromTask_Handler(srv interface{}, ctx context.Cont
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var BoardService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "board.BoardService",
+	ServiceName: "taskservicev1.BoardService",
 	HandlerType: (*BoardServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CreateBoard",
-			Handler:    _BoardService_CreateBoard_Handler,
-		},
-		{
-			MethodName: "GetBoard",
-			Handler:    _BoardService_GetBoard_Handler,
-		},
-		{
-			MethodName: "UpdateBoard",
-			Handler:    _BoardService_UpdateBoard_Handler,
-		},
-		{
-			MethodName: "DeleteBoard",
-			Handler:    _BoardService_DeleteBoard_Handler,
-		},
-		{
-			MethodName: "GetUserBoards",
-			Handler:    _BoardService_GetUserBoards_Handler,
-		},
-		{
-			MethodName: "GetTeamBoards",
-			Handler:    _BoardService_GetTeamBoards_Handler,
-		},
-		{
-			MethodName: "CreateList",
-			Handler:    _BoardService_CreateList_Handler,
-		},
-		{
-			MethodName: "UpdateList",
-			Handler:    _BoardService_UpdateList_Handler,
-		},
-		{
-			MethodName: "DeleteList",
-			Handler:    _BoardService_DeleteList_Handler,
-		},
-		{
-			MethodName: "ReorderLists",
-			Handler:    _BoardService_ReorderLists_Handler,
-		},
 		{
 			MethodName: "CreateTask",
 			Handler:    _BoardService_CreateTask_Handler,
@@ -997,8 +583,8 @@ var BoardService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _BoardService_UnassignUser_Handler,
 		},
 		{
-			MethodName: "GetTasksForList",
-			Handler:    _BoardService_GetTasksForList_Handler,
+			MethodName: "GetTasksForLists",
+			Handler:    _BoardService_GetTasksForLists_Handler,
 		},
 		{
 			MethodName: "GetTasksForUser",
@@ -1017,10 +603,6 @@ var BoardService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _BoardService_DeleteLabel_Handler,
 		},
 		{
-			MethodName: "GetBoardLabels",
-			Handler:    _BoardService_GetBoardLabels_Handler,
-		},
-		{
 			MethodName: "AddLabelToTask",
 			Handler:    _BoardService_AddLabelToTask_Handler,
 		},
@@ -1030,5 +612,5 @@ var BoardService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "board_service.proto",
+	Metadata: "task_service.proto",
 }
