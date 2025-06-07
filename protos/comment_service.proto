@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package comment;
+package commentservicev1;
 
 option go_package = "github.com/ShiroyamaY/proto/comment";
 

@@ -4,7 +4,7 @@
 // - protoc             v6.30.1
 // source: comment_service.proto
 
-package comment_service
+package comment
 
 import (
 	context "context"
@@ -20,14 +20,14 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CommentService_CreateComment_FullMethodName     = "/comment.CommentService/CreateComment"
-	CommentService_GetComment_FullMethodName        = "/comment.CommentService/GetComment"
-	CommentService_UpdateComment_FullMethodName     = "/comment.CommentService/UpdateComment"
-	CommentService_DeleteComment_FullMethodName     = "/comment.CommentService/DeleteComment"
-	CommentService_GetTaskComments_FullMethodName   = "/comment.CommentService/GetTaskComments"
-	CommentService_GetCommentReplies_FullMethodName = "/comment.CommentService/GetCommentReplies"
-	CommentService_AddReaction_FullMethodName       = "/comment.CommentService/AddReaction"
-	CommentService_RemoveReaction_FullMethodName    = "/comment.CommentService/RemoveReaction"
+	CommentService_CreateComment_FullMethodName     = "/commentservicev1.CommentService/CreateComment"
+	CommentService_GetComment_FullMethodName        = "/commentservicev1.CommentService/GetComment"
+	CommentService_UpdateComment_FullMethodName     = "/commentservicev1.CommentService/UpdateComment"
+	CommentService_DeleteComment_FullMethodName     = "/commentservicev1.CommentService/DeleteComment"
+	CommentService_GetTaskComments_FullMethodName   = "/commentservicev1.CommentService/GetTaskComments"
+	CommentService_GetCommentReplies_FullMethodName = "/commentservicev1.CommentService/GetCommentReplies"
+	CommentService_AddReaction_FullMethodName       = "/commentservicev1.CommentService/AddReaction"
+	CommentService_RemoveReaction_FullMethodName    = "/commentservicev1.CommentService/RemoveReaction"
 )
 
 // CommentServiceClient is the client API for CommentService service.
@@ -347,7 +347,7 @@ func _CommentService_RemoveReaction_Handler(srv interface{}, ctx context.Context
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var CommentService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "comment.CommentService",
+	ServiceName: "commentservicev1.CommentService",
 	HandlerType: (*CommentServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
