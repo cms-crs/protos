@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package userservice;
 
-option go_package = "github.com/cms-crs/protos/go/gen/user_service";
+option go_package = "userservice/protos/go/gen/user_service";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";

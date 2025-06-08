@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package auth;
+package authservice;
 
-option go_package = "shiroyama.auth.v1;authv1";
+option go_package = "authservice/protos/go/gen/auth_service";
 
 import "google/protobuf/empty.proto";
 

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package taskservice;
 
-option go_package = "github.com/cms-crs/protos/go/gen/task_service";
+option go_package = "taskservice/protos/go/gen/task_service";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";

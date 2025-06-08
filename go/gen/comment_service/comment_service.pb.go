@@ -940,7 +940,7 @@ const file_comment_service_proto_rawDesc = "" +
 	"\x0fGetTaskComments\x12&.commentservice.GetTaskCommentsRequest\x1a'.commentservice.GetTaskCommentsResponse\x12h\n" +
 	"\x11GetCommentReplies\x12(.commentservice.GetCommentRepliesRequest\x1a).commentservice.GetCommentRepliesResponse\x12J\n" +
 	"\vAddReaction\x12\".commentservice.AddReactionRequest\x1a\x17.commentservice.Comment\x12P\n" +
-	"\x0eRemoveReaction\x12%.commentservice.RemoveReactionRequest\x1a\x17.commentservice.CommentB2Z0github.com/cms-crs/protos/go/gen/comment_serviceb\x06proto3"
+	"\x0eRemoveReaction\x12%.commentservice.RemoveReactionRequest\x1a\x17.commentservice.CommentB.Z,commentservice/protos/go/gen/comment_serviceb\x06proto3"
 
 var (
 	file_comment_service_proto_rawDescOnce sync.Once

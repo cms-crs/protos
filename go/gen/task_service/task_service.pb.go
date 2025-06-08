@@ -1159,7 +1159,7 @@ const file_task_service_proto_rawDesc = "" +
 	"\vUpdateLabel\x12\x1f.taskservice.UpdateLabelRequest\x1a\x12.taskservice.Label\x12F\n" +
 	"\vDeleteLabel\x12\x1f.taskservice.DeleteLabelRequest\x1a\x16.google.protobuf.Empty\x12L\n" +
 	"\x0eAddLabelToTask\x12\".taskservice.AddLabelToTaskRequest\x1a\x16.google.protobuf.Empty\x12V\n" +
-	"\x13RemoveLabelFromTask\x12'.taskservice.RemoveLabelFromTaskRequest\x1a\x16.google.protobuf.EmptyB/Z-github.com/cms-crs/protos/go/gen/task_serviceb\x06proto3"
+	"\x13RemoveLabelFromTask\x12'.taskservice.RemoveLabelFromTaskRequest\x1a\x16.google.protobuf.EmptyB(Z&taskservice/protos/go/gen/task_serviceb\x06proto3"
 
 var (
 	file_task_service_proto_rawDescOnce sync.Once

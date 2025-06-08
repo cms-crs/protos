@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package commentservice;
 
-option go_package = "github.com/cms-crs/protos/go/gen/comment_service";
+option go_package = "commentservice/protos/go/gen/comment_service";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";

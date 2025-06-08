@@ -1066,7 +1066,7 @@ const file_activity_service_proto_rawDesc = "" +
 	"\x0fGetUserActivity\x12'.activityservice.GetUserActivityRequest\x1a(.activityservice.GetUserActivityResponse\x12g\n" +
 	"\x10GetBoardActivity\x12(.activityservice.GetBoardActivityRequest\x1a).activityservice.GetBoardActivityResponse\x12d\n" +
 	"\x0fGetTeamActivity\x12'.activityservice.GetTeamActivityRequest\x1a(.activityservice.GetTeamActivityResponse\x12M\n" +
-	"\vLogActivity\x12#.activityservice.LogActivityRequest\x1a\x19.activityservice.ActivityB3Z1github.com/cms-crs/protos/go/gen/activity_serviceb\x06proto3"
+	"\vLogActivity\x12#.activityservice.LogActivityRequest\x1a\x19.activityservice.ActivityB0Z.activityservice/protos/go/gen/activity_serviceb\x06proto3"
 
 var (
 	file_activity_service_proto_rawDescOnce sync.Once

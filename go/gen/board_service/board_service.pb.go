@@ -1342,7 +1342,7 @@ const file_board_service_proto_rawDesc = "" +
 	"\n" +
 	"DeleteList\x12\x1f.boardservice.DeleteListRequest\x1a\x16.google.protobuf.Empty\x12I\n" +
 	"\fReorderLists\x12!.boardservice.ReorderListsRequest\x1a\x16.google.protobuf.Empty\x12[\n" +
-	"\x0eGetBoardLabels\x12#.boardservice.GetBoardLabelsRequest\x1a$.boardservice.GetBoardLabelsResponseB0Z.github.com/cms-crs/protos/go/gen/board_serviceb\x06proto3"
+	"\x0eGetBoardLabels\x12#.boardservice.GetBoardLabelsRequest\x1a$.boardservice.GetBoardLabelsResponseB*Z(boardservice/protos/go/gen/board_serviceb\x06proto3"
 
 var (
 	file_board_service_proto_rawDescOnce sync.Once

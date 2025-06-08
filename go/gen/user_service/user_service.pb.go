@@ -1356,7 +1356,7 @@ const file_user_service_proto_rawDesc = "" +
 	"\rAddUserToTeam\x12!.userservice.AddUserToTeamRequest\x1a\x17.userservice.TeamMember\x12T\n" +
 	"\x12RemoveUserFromTeam\x12&.userservice.RemoveUserFromTeamRequest\x1a\x16.google.protobuf.Empty\x12M\n" +
 	"\x0eUpdateUserRole\x12\".userservice.UpdateUserRoleRequest\x1a\x17.userservice.TeamMember\x12Y\n" +
-	"\x0eGetTeamMembers\x12\".userservice.GetTeamMembersRequest\x1a#.userservice.GetTeamMembersResponseB/Z-github.com/cms-crs/protos/go/gen/user_serviceb\x06proto3"
+	"\x0eGetTeamMembers\x12\".userservice.GetTeamMembersRequest\x1a#.userservice.GetTeamMembersResponseB(Z&userservice/protos/go/gen/user_serviceb\x06proto3"
 
 var (
 	file_user_service_proto_rawDescOnce sync.Once

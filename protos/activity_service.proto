@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package activityservice;
 
-option go_package = "github.com/cms-crs/protos/go/gen/activity_service";
+option go_package = "activityservice/protos/go/gen/activity_service";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/struct.proto";
