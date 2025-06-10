@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package userservice;
+package user;
 
-option go_package = "userservice/protos/go/gen/user_service";
+option go_package = "shiroyama.user.v1;userv1";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";

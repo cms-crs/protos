@@ -4,7 +4,7 @@
 // 	protoc        v6.30.2
 // source: user_service.proto
 
-package user_service
+package userv1
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -1255,7 +1255,7 @@ var File_user_service_proto protoreflect.FileDescriptor
 
 const file_user_service_proto_rawDesc = "" +
 	"\n" +
-	"\x12user_service.proto\x12\vuserservice\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\"\xbe\x01\n" +
+	"\x12user_service.proto\x12\x04user\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\"\xbe\x01\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x1a\n" +
@@ -1278,14 +1278,16 @@ const file_user_service_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"D\n" +
 	"\x10LoginUserRequest\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
-	"\bpassword\x18\x02 \x01(\tR\bpassword\"P\n" +
+	"\bpassword\x18\x02 \x01(\tR\bpassword\"I\n" +
 	"\x11LoginUserResponse\x12\x14\n" +
-	"\x05token\x18\x01 \x01(\tR\x05token\x12%\n" +
-	"\x04user\x18\x02 \x01(\v2\x11.userservice.UserR\x04user\"(\n" +
+	"\x05token\x18\x01 \x01(\tR\x05token\x12\x1e\n" +
+	"\x04user\x18\x02 \x01(\v2\n" +
+	".user.UserR\x04user\"(\n" +
 	"\x14GetUsersByIdsRequest\x12\x10\n" +
-	"\x03ids\x18\x01 \x03(\tR\x03ids\"@\n" +
-	"\x15GetUsersByIdsResponse\x12'\n" +
-	"\x05users\x18\x01 \x03(\v2\x11.userservice.UserR\x05users\"\xc2\x01\n" +
+	"\x03ids\x18\x01 \x03(\tR\x03ids\"9\n" +
+	"\x15GetUsersByIdsResponse\x12 \n" +
+	"\x05users\x18\x01 \x03(\v2\n" +
+	".user.UserR\x05users\"\xc2\x01\n" +
 	"\x04Team\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
@@ -1293,13 +1295,14 @@ const file_user_service_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
-	"updated_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\"y\n" +
+	"updated_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\"r\n" +
 	"\n" +
 	"TeamMember\x12\x17\n" +
 	"\ateam_id\x18\x01 \x01(\tR\x06teamId\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x12\n" +
-	"\x04role\x18\x03 \x01(\tR\x04role\x12%\n" +
-	"\x04user\x18\x04 \x01(\v2\x11.userservice.UserR\x04user\"h\n" +
+	"\x04role\x18\x03 \x01(\tR\x04role\x12\x1e\n" +
+	"\x04user\x18\x04 \x01(\v2\n" +
+	".user.UserR\x04user\"h\n" +
 	"\x11CreateTeamRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x12\x1d\n" +
@@ -1314,11 +1317,12 @@ const file_user_service_proto_rawDesc = "" +
 	"\x11DeleteTeamRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\".\n" +
 	"\x13GetUserTeamsRequest\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\tR\x06userId\"G\n" +
-	"\x14GetUserTeamsResponse\x12/\n" +
-	"\x05teams\x18\x01 \x03(\v2\x19.userservice.TeamWithRoleR\x05teams\"I\n" +
-	"\fTeamWithRole\x12%\n" +
-	"\x04team\x18\x01 \x01(\v2\x11.userservice.TeamR\x04team\x12\x12\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userId\"@\n" +
+	"\x14GetUserTeamsResponse\x12(\n" +
+	"\x05teams\x18\x01 \x03(\v2\x12.user.TeamWithRoleR\x05teams\"B\n" +
+	"\fTeamWithRole\x12\x1e\n" +
+	"\x04team\x18\x01 \x01(\v2\n" +
+	".user.TeamR\x04team\x12\x12\n" +
 	"\x04role\x18\x02 \x01(\tR\x04role\"\\\n" +
 	"\x14AddUserToTeamRequest\x12\x17\n" +
 	"\ateam_id\x18\x01 \x01(\tR\x06teamId\x12\x17\n" +
@@ -1332,31 +1336,37 @@ const file_user_service_proto_rawDesc = "" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x12\n" +
 	"\x04role\x18\x03 \x01(\tR\x04role\"0\n" +
 	"\x15GetTeamMembersRequest\x12\x17\n" +
-	"\ateam_id\x18\x01 \x01(\tR\x06teamId\"K\n" +
-	"\x16GetTeamMembersResponse\x121\n" +
-	"\amembers\x18\x01 \x03(\v2\x17.userservice.TeamMemberR\amembers2\xd9\b\n" +
-	"\vUserService\x12?\n" +
+	"\ateam_id\x18\x01 \x01(\tR\x06teamId\"D\n" +
+	"\x16GetTeamMembersResponse\x12*\n" +
+	"\amembers\x18\x01 \x03(\v2\x10.user.TeamMemberR\amembers2\x9c\a\n" +
+	"\vUserService\x121\n" +
 	"\n" +
-	"CreateUser\x12\x1e.userservice.CreateUserRequest\x1a\x11.userservice.User\x129\n" +
-	"\aGetUser\x12\x1b.userservice.GetUserRequest\x1a\x11.userservice.User\x12?\n" +
+	"CreateUser\x12\x17.user.CreateUserRequest\x1a\n" +
+	".user.User\x12+\n" +
+	"\aGetUser\x12\x14.user.GetUserRequest\x1a\n" +
+	".user.User\x121\n" +
 	"\n" +
-	"UpdateUser\x12\x1e.userservice.UpdateUserRequest\x1a\x11.userservice.User\x12D\n" +
+	"UpdateUser\x12\x17.user.UpdateUserRequest\x1a\n" +
+	".user.User\x12=\n" +
 	"\n" +
-	"DeleteUser\x12\x1e.userservice.DeleteUserRequest\x1a\x16.google.protobuf.Empty\x12J\n" +
-	"\tLoginUser\x12\x1d.userservice.LoginUserRequest\x1a\x1e.userservice.LoginUserResponse\x12V\n" +
-	"\rGetUsersByIds\x12!.userservice.GetUsersByIdsRequest\x1a\".userservice.GetUsersByIdsResponse\x12?\n" +
+	"DeleteUser\x12\x17.user.DeleteUserRequest\x1a\x16.google.protobuf.Empty\x12<\n" +
+	"\tLoginUser\x12\x16.user.LoginUserRequest\x1a\x17.user.LoginUserResponse\x12H\n" +
+	"\rGetUsersByIds\x12\x1a.user.GetUsersByIdsRequest\x1a\x1b.user.GetUsersByIdsResponse\x121\n" +
 	"\n" +
-	"CreateTeam\x12\x1e.userservice.CreateTeamRequest\x1a\x11.userservice.Team\x129\n" +
-	"\aGetTeam\x12\x1b.userservice.GetTeamRequest\x1a\x11.userservice.Team\x12?\n" +
+	"CreateTeam\x12\x17.user.CreateTeamRequest\x1a\n" +
+	".user.Team\x12+\n" +
+	"\aGetTeam\x12\x14.user.GetTeamRequest\x1a\n" +
+	".user.Team\x121\n" +
 	"\n" +
-	"UpdateTeam\x12\x1e.userservice.UpdateTeamRequest\x1a\x11.userservice.Team\x12D\n" +
+	"UpdateTeam\x12\x17.user.UpdateTeamRequest\x1a\n" +
+	".user.Team\x12=\n" +
 	"\n" +
-	"DeleteTeam\x12\x1e.userservice.DeleteTeamRequest\x1a\x16.google.protobuf.Empty\x12S\n" +
-	"\fGetUserTeams\x12 .userservice.GetUserTeamsRequest\x1a!.userservice.GetUserTeamsResponse\x12K\n" +
-	"\rAddUserToTeam\x12!.userservice.AddUserToTeamRequest\x1a\x17.userservice.TeamMember\x12T\n" +
-	"\x12RemoveUserFromTeam\x12&.userservice.RemoveUserFromTeamRequest\x1a\x16.google.protobuf.Empty\x12M\n" +
-	"\x0eUpdateUserRole\x12\".userservice.UpdateUserRoleRequest\x1a\x17.userservice.TeamMember\x12Y\n" +
-	"\x0eGetTeamMembers\x12\".userservice.GetTeamMembersRequest\x1a#.userservice.GetTeamMembersResponseB(Z&userservice/protos/go/gen/user_serviceb\x06proto3"
+	"DeleteTeam\x12\x17.user.DeleteTeamRequest\x1a\x16.google.protobuf.Empty\x12E\n" +
+	"\fGetUserTeams\x12\x19.user.GetUserTeamsRequest\x1a\x1a.user.GetUserTeamsResponse\x12=\n" +
+	"\rAddUserToTeam\x12\x1a.user.AddUserToTeamRequest\x1a\x10.user.TeamMember\x12M\n" +
+	"\x12RemoveUserFromTeam\x12\x1f.user.RemoveUserFromTeamRequest\x1a\x16.google.protobuf.Empty\x12?\n" +
+	"\x0eUpdateUserRole\x12\x1b.user.UpdateUserRoleRequest\x1a\x10.user.TeamMember\x12K\n" +
+	"\x0eGetTeamMembers\x12\x1b.user.GetTeamMembersRequest\x1a\x1c.user.GetTeamMembersResponseB\x1aZ\x18shiroyama.user.v1;userv1b\x06proto3"
 
 var (
 	file_user_service_proto_rawDescOnce sync.Once
@@ -1372,73 +1382,73 @@ func file_user_service_proto_rawDescGZIP() []byte {
 
 var file_user_service_proto_msgTypes = make([]protoimpl.MessageInfo, 23)
 var file_user_service_proto_goTypes = []any{
-	(*User)(nil),                      // 0: userservice.User
-	(*CreateUserRequest)(nil),         // 1: userservice.CreateUserRequest
-	(*GetUserRequest)(nil),            // 2: userservice.GetUserRequest
-	(*UpdateUserRequest)(nil),         // 3: userservice.UpdateUserRequest
-	(*DeleteUserRequest)(nil),         // 4: userservice.DeleteUserRequest
-	(*LoginUserRequest)(nil),          // 5: userservice.LoginUserRequest
-	(*LoginUserResponse)(nil),         // 6: userservice.LoginUserResponse
-	(*GetUsersByIdsRequest)(nil),      // 7: userservice.GetUsersByIdsRequest
-	(*GetUsersByIdsResponse)(nil),     // 8: userservice.GetUsersByIdsResponse
-	(*Team)(nil),                      // 9: userservice.Team
-	(*TeamMember)(nil),                // 10: userservice.TeamMember
-	(*CreateTeamRequest)(nil),         // 11: userservice.CreateTeamRequest
-	(*GetTeamRequest)(nil),            // 12: userservice.GetTeamRequest
-	(*UpdateTeamRequest)(nil),         // 13: userservice.UpdateTeamRequest
-	(*DeleteTeamRequest)(nil),         // 14: userservice.DeleteTeamRequest
-	(*GetUserTeamsRequest)(nil),       // 15: userservice.GetUserTeamsRequest
-	(*GetUserTeamsResponse)(nil),      // 16: userservice.GetUserTeamsResponse
-	(*TeamWithRole)(nil),              // 17: userservice.TeamWithRole
-	(*AddUserToTeamRequest)(nil),      // 18: userservice.AddUserToTeamRequest
-	(*RemoveUserFromTeamRequest)(nil), // 19: userservice.RemoveUserFromTeamRequest
-	(*UpdateUserRoleRequest)(nil),     // 20: userservice.UpdateUserRoleRequest
-	(*GetTeamMembersRequest)(nil),     // 21: userservice.GetTeamMembersRequest
-	(*GetTeamMembersResponse)(nil),    // 22: userservice.GetTeamMembersResponse
+	(*User)(nil),                      // 0: user.User
+	(*CreateUserRequest)(nil),         // 1: user.CreateUserRequest
+	(*GetUserRequest)(nil),            // 2: user.GetUserRequest
+	(*UpdateUserRequest)(nil),         // 3: user.UpdateUserRequest
+	(*DeleteUserRequest)(nil),         // 4: user.DeleteUserRequest
+	(*LoginUserRequest)(nil),          // 5: user.LoginUserRequest
+	(*LoginUserResponse)(nil),         // 6: user.LoginUserResponse
+	(*GetUsersByIdsRequest)(nil),      // 7: user.GetUsersByIdsRequest
+	(*GetUsersByIdsResponse)(nil),     // 8: user.GetUsersByIdsResponse
+	(*Team)(nil),                      // 9: user.Team
+	(*TeamMember)(nil),                // 10: user.TeamMember
+	(*CreateTeamRequest)(nil),         // 11: user.CreateTeamRequest
+	(*GetTeamRequest)(nil),            // 12: user.GetTeamRequest
+	(*UpdateTeamRequest)(nil),         // 13: user.UpdateTeamRequest
+	(*DeleteTeamRequest)(nil),         // 14: user.DeleteTeamRequest
+	(*GetUserTeamsRequest)(nil),       // 15: user.GetUserTeamsRequest
+	(*GetUserTeamsResponse)(nil),      // 16: user.GetUserTeamsResponse
+	(*TeamWithRole)(nil),              // 17: user.TeamWithRole
+	(*AddUserToTeamRequest)(nil),      // 18: user.AddUserToTeamRequest
+	(*RemoveUserFromTeamRequest)(nil), // 19: user.RemoveUserFromTeamRequest
+	(*UpdateUserRoleRequest)(nil),     // 20: user.UpdateUserRoleRequest
+	(*GetTeamMembersRequest)(nil),     // 21: user.GetTeamMembersRequest
+	(*GetTeamMembersResponse)(nil),    // 22: user.GetTeamMembersResponse
 	(*timestamppb.Timestamp)(nil),     // 23: google.protobuf.Timestamp
 	(*emptypb.Empty)(nil),             // 24: google.protobuf.Empty
 }
 var file_user_service_proto_depIdxs = []int32{
-	23, // 0: userservice.User.created_at:type_name -> google.protobuf.Timestamp
-	23, // 1: userservice.User.updated_at:type_name -> google.protobuf.Timestamp
-	0,  // 2: userservice.LoginUserResponse.user:type_name -> userservice.User
-	0,  // 3: userservice.GetUsersByIdsResponse.users:type_name -> userservice.User
-	23, // 4: userservice.Team.created_at:type_name -> google.protobuf.Timestamp
-	23, // 5: userservice.Team.updated_at:type_name -> google.protobuf.Timestamp
-	0,  // 6: userservice.TeamMember.user:type_name -> userservice.User
-	17, // 7: userservice.GetUserTeamsResponse.teams:type_name -> userservice.TeamWithRole
-	9,  // 8: userservice.TeamWithRole.team:type_name -> userservice.Team
-	10, // 9: userservice.GetTeamMembersResponse.members:type_name -> userservice.TeamMember
-	1,  // 10: userservice.UserService.CreateUser:input_type -> userservice.CreateUserRequest
-	2,  // 11: userservice.UserService.GetUser:input_type -> userservice.GetUserRequest
-	3,  // 12: userservice.UserService.UpdateUser:input_type -> userservice.UpdateUserRequest
-	4,  // 13: userservice.UserService.DeleteUser:input_type -> userservice.DeleteUserRequest
-	5,  // 14: userservice.UserService.LoginUser:input_type -> userservice.LoginUserRequest
-	7,  // 15: userservice.UserService.GetUsersByIds:input_type -> userservice.GetUsersByIdsRequest
-	11, // 16: userservice.UserService.CreateTeam:input_type -> userservice.CreateTeamRequest
-	12, // 17: userservice.UserService.GetTeam:input_type -> userservice.GetTeamRequest
-	13, // 18: userservice.UserService.UpdateTeam:input_type -> userservice.UpdateTeamRequest
-	14, // 19: userservice.UserService.DeleteTeam:input_type -> userservice.DeleteTeamRequest
-	15, // 20: userservice.UserService.GetUserTeams:input_type -> userservice.GetUserTeamsRequest
-	18, // 21: userservice.UserService.AddUserToTeam:input_type -> userservice.AddUserToTeamRequest
-	19, // 22: userservice.UserService.RemoveUserFromTeam:input_type -> userservice.RemoveUserFromTeamRequest
-	20, // 23: userservice.UserService.UpdateUserRole:input_type -> userservice.UpdateUserRoleRequest
-	21, // 24: userservice.UserService.GetTeamMembers:input_type -> userservice.GetTeamMembersRequest
-	0,  // 25: userservice.UserService.CreateUser:output_type -> userservice.User
-	0,  // 26: userservice.UserService.GetUser:output_type -> userservice.User
-	0,  // 27: userservice.UserService.UpdateUser:output_type -> userservice.User
-	24, // 28: userservice.UserService.DeleteUser:output_type -> google.protobuf.Empty
-	6,  // 29: userservice.UserService.LoginUser:output_type -> userservice.LoginUserResponse
-	8,  // 30: userservice.UserService.GetUsersByIds:output_type -> userservice.GetUsersByIdsResponse
-	9,  // 31: userservice.UserService.CreateTeam:output_type -> userservice.Team
-	9,  // 32: userservice.UserService.GetTeam:output_type -> userservice.Team
-	9,  // 33: userservice.UserService.UpdateTeam:output_type -> userservice.Team
-	24, // 34: userservice.UserService.DeleteTeam:output_type -> google.protobuf.Empty
-	16, // 35: userservice.UserService.GetUserTeams:output_type -> userservice.GetUserTeamsResponse
-	10, // 36: userservice.UserService.AddUserToTeam:output_type -> userservice.TeamMember
-	24, // 37: userservice.UserService.RemoveUserFromTeam:output_type -> google.protobuf.Empty
-	10, // 38: userservice.UserService.UpdateUserRole:output_type -> userservice.TeamMember
-	22, // 39: userservice.UserService.GetTeamMembers:output_type -> userservice.GetTeamMembersResponse
+	23, // 0: user.User.created_at:type_name -> google.protobuf.Timestamp
+	23, // 1: user.User.updated_at:type_name -> google.protobuf.Timestamp
+	0,  // 2: user.LoginUserResponse.user:type_name -> user.User
+	0,  // 3: user.GetUsersByIdsResponse.users:type_name -> user.User
+	23, // 4: user.Team.created_at:type_name -> google.protobuf.Timestamp
+	23, // 5: user.Team.updated_at:type_name -> google.protobuf.Timestamp
+	0,  // 6: user.TeamMember.user:type_name -> user.User
+	17, // 7: user.GetUserTeamsResponse.teams:type_name -> user.TeamWithRole
+	9,  // 8: user.TeamWithRole.team:type_name -> user.Team
+	10, // 9: user.GetTeamMembersResponse.members:type_name -> user.TeamMember
+	1,  // 10: user.UserService.CreateUser:input_type -> user.CreateUserRequest
+	2,  // 11: user.UserService.GetUser:input_type -> user.GetUserRequest
+	3,  // 12: user.UserService.UpdateUser:input_type -> user.UpdateUserRequest
+	4,  // 13: user.UserService.DeleteUser:input_type -> user.DeleteUserRequest
+	5,  // 14: user.UserService.LoginUser:input_type -> user.LoginUserRequest
+	7,  // 15: user.UserService.GetUsersByIds:input_type -> user.GetUsersByIdsRequest
+	11, // 16: user.UserService.CreateTeam:input_type -> user.CreateTeamRequest
+	12, // 17: user.UserService.GetTeam:input_type -> user.GetTeamRequest
+	13, // 18: user.UserService.UpdateTeam:input_type -> user.UpdateTeamRequest
+	14, // 19: user.UserService.DeleteTeam:input_type -> user.DeleteTeamRequest
+	15, // 20: user.UserService.GetUserTeams:input_type -> user.GetUserTeamsRequest
+	18, // 21: user.UserService.AddUserToTeam:input_type -> user.AddUserToTeamRequest
+	19, // 22: user.UserService.RemoveUserFromTeam:input_type -> user.RemoveUserFromTeamRequest
+	20, // 23: user.UserService.UpdateUserRole:input_type -> user.UpdateUserRoleRequest
+	21, // 24: user.UserService.GetTeamMembers:input_type -> user.GetTeamMembersRequest
+	0,  // 25: user.UserService.CreateUser:output_type -> user.User
+	0,  // 26: user.UserService.GetUser:output_type -> user.User
+	0,  // 27: user.UserService.UpdateUser:output_type -> user.User
+	24, // 28: user.UserService.DeleteUser:output_type -> google.protobuf.Empty
+	6,  // 29: user.UserService.LoginUser:output_type -> user.LoginUserResponse
+	8,  // 30: user.UserService.GetUsersByIds:output_type -> user.GetUsersByIdsResponse
+	9,  // 31: user.UserService.CreateTeam:output_type -> user.Team
+	9,  // 32: user.UserService.GetTeam:output_type -> user.Team
+	9,  // 33: user.UserService.UpdateTeam:output_type -> user.Team
+	24, // 34: user.UserService.DeleteTeam:output_type -> google.protobuf.Empty
+	16, // 35: user.UserService.GetUserTeams:output_type -> user.GetUserTeamsResponse
+	10, // 36: user.UserService.AddUserToTeam:output_type -> user.TeamMember
+	24, // 37: user.UserService.RemoveUserFromTeam:output_type -> google.protobuf.Empty
+	10, // 38: user.UserService.UpdateUserRole:output_type -> user.TeamMember
+	22, // 39: user.UserService.GetTeamMembers:output_type -> user.GetTeamMembersResponse
 	25, // [25:40] is the sub-list for method output_type
 	10, // [10:25] is the sub-list for method input_type
 	10, // [10:10] is the sub-list for extension type_name

@@ -2,7 +2,7 @@
 
 PROTO_DIR="./protos"
 
-OUT_BASE="./go/gen"
+OUT_BASE="./gen/go"
 
 mkdir -p "$OUT_BASE"
 
