@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package commentservice;
+package comment.v1;
 
-option go_package = "commentservice/protos/go/gen/comment_service";
+option go_package = "shiroyama.comment.v1;boardv1";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";

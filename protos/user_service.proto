@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package user;
+package user.v1;
 
 option go_package = "shiroyama.user.v1;userv1";
 
@@ -12,18 +12,7 @@ service UserService {
 	rpc GetUser(GetUserRequest) returns (User);
 	rpc UpdateUser(UpdateUserRequest) returns (User);
 	rpc DeleteUser(DeleteUserRequest) returns (google.protobuf.Empty);
-	rpc LoginUser(LoginUserRequest) returns (LoginUserResponse);
 	rpc GetUsersByIds(GetUsersByIdsRequest) returns (GetUsersByIdsResponse);
-
-	rpc CreateTeam(CreateTeamRequest) returns (Team);
-	rpc GetTeam(GetTeamRequest) returns (Team);
-	rpc UpdateTeam(UpdateTeamRequest) returns (Team);
-	rpc DeleteTeam(DeleteTeamRequest) returns (google.protobuf.Empty);
-	rpc GetUserTeams(GetUserTeamsRequest) returns (GetUserTeamsResponse);
-	rpc AddUserToTeam(AddUserToTeamRequest) returns (TeamMember);
-	rpc RemoveUserFromTeam(RemoveUserFromTeamRequest) returns (google.protobuf.Empty);
-	rpc UpdateUserRole(UpdateUserRoleRequest) returns (TeamMember);
-	rpc GetTeamMembers(GetTeamMembersRequest) returns (GetTeamMembersResponse);
 }
 
 message User {
@@ -36,7 +25,6 @@ message User {
 
 message CreateUserRequest {
 	string email = 1;
-	string password = 2;
 	string username = 3;
 }
 
@@ -47,21 +35,11 @@ message GetUserRequest {
 message UpdateUserRequest {
 	string id = 1;
 	string username = 2;
-	string password = 4;
+	string email = 3;
 }
 
 message DeleteUserRequest {
 	string id = 1;
-}
-
-message LoginUserRequest {
-	string email = 1;
-	string password = 2;
-}
-
-message LoginUserResponse {
-	string token = 1;
-	User user = 2;
 }
 
 message GetUsersByIdsRequest {
@@ -70,77 +48,4 @@ message GetUsersByIdsRequest {
 
 message GetUsersByIdsResponse {
 	repeated User users = 1;
-}
-
-message Team {
-	string id = 1;
-	string name = 2;
-	string description = 3;
-	google.protobuf.Timestamp created_at = 4;
-	google.protobuf.Timestamp updated_at = 5;
-}
-
-message TeamMember {
-	string team_id = 1;
-	string user_id = 2;
-	string role = 3;
-	User user = 4;
-}
-
-message CreateTeamRequest {
-	string name = 1;
-	string description = 2;
-	string created_by = 3;
-}
-
-message GetTeamRequest {
-	string id = 1;
-}
-
-message UpdateTeamRequest {
-	string id = 1;
-	string name = 2;
-	string description = 3;
-}
-
-message DeleteTeamRequest {
-	string id = 1;
-}
-
-message GetUserTeamsRequest {
-	string user_id = 1;
-}
-
-message GetUserTeamsResponse {
-	repeated TeamWithRole teams = 1;
-}
-
-message TeamWithRole {
-	Team team = 1;
-	string role = 2;
-}
-
-message AddUserToTeamRequest {
-	string team_id = 1;
-	string user_id = 2;
-	string role = 3;
-}
-
-message RemoveUserFromTeamRequest {
-	string team_id = 1;
-	string user_id = 2;
-}
-
-message UpdateUserRoleRequest {
-	string team_id = 1;
-	string user_id = 2;
-	string role = 3;
-}
-
-message GetTeamMembersRequest {
-	string team_id = 1;
-}
-
-message GetTeamMembersResponse {
-	repeated TeamMember members = 1;
 }

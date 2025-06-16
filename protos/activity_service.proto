@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package activityservice;
+package activity.v1;
 
-option go_package = "activityservice/protos/go/gen/activity_service";
+option go_package = "shiroyama.activity.v1;activityv1";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/struct.proto";

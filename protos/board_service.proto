@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package boardservice;
+package board.v1;
 
-option go_package = "boardservice/protos/go/gen/board_service";
+option go_package = "shiroyama.board.v1;boardv1";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
