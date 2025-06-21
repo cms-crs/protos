@@ -1140,8 +1140,8 @@ const file_task_service_proto_rawDesc = "" +
 	"\x17GetTasksForListsRequest\x12\x19\n" +
 	"\blist_ids\x18\x01 \x03(\tR\alistIds\"?\n" +
 	"\x18GetTasksForListsResponse\x12#\n" +
-	"\x05tasks\x18\x01 \x03(\v2\r.task.v1.TaskR\x05tasks2\xa9\a\n" +
-	"\fBoardService\x127\n" +
+	"\x05tasks\x18\x01 \x03(\v2\r.task.v1.TaskR\x05tasks2\xa8\a\n" +
+	"\vTaskService\x127\n" +
 	"\n" +
 	"CreateTask\x12\x1a.task.v1.CreateTaskRequest\x1a\r.task.v1.Task\x121\n" +
 	"\aGetTask\x12\x17.task.v1.GetTaskRequest\x1a\r.task.v1.Task\x127\n" +
@@ -1205,34 +1205,34 @@ var file_task_service_proto_depIdxs = []int32{
 	18, // 5: task.v1.UpdateTaskRequest.due_date:type_name -> google.protobuf.Timestamp
 	0,  // 6: task.v1.GetTasksForUserResponse.tasks:type_name -> task.v1.Task
 	0,  // 7: task.v1.GetTasksForListsResponse.tasks:type_name -> task.v1.Task
-	2,  // 8: task.v1.BoardService.CreateTask:input_type -> task.v1.CreateTaskRequest
-	3,  // 9: task.v1.BoardService.GetTask:input_type -> task.v1.GetTaskRequest
-	4,  // 10: task.v1.BoardService.UpdateTask:input_type -> task.v1.UpdateTaskRequest
-	5,  // 11: task.v1.BoardService.DeleteTask:input_type -> task.v1.DeleteTaskRequest
-	6,  // 12: task.v1.BoardService.MoveTask:input_type -> task.v1.MoveTaskRequest
-	7,  // 13: task.v1.BoardService.AssignUser:input_type -> task.v1.AssignUserRequest
-	8,  // 14: task.v1.BoardService.UnassignUser:input_type -> task.v1.UnassignUserRequest
-	16, // 15: task.v1.BoardService.GetTasksForLists:input_type -> task.v1.GetTasksForListsRequest
-	9,  // 16: task.v1.BoardService.GetTasksForUser:input_type -> task.v1.GetTasksForUserRequest
-	11, // 17: task.v1.BoardService.CreateLabel:input_type -> task.v1.CreateLabelRequest
-	12, // 18: task.v1.BoardService.UpdateLabel:input_type -> task.v1.UpdateLabelRequest
-	13, // 19: task.v1.BoardService.DeleteLabel:input_type -> task.v1.DeleteLabelRequest
-	14, // 20: task.v1.BoardService.AddLabelToTask:input_type -> task.v1.AddLabelToTaskRequest
-	15, // 21: task.v1.BoardService.RemoveLabelFromTask:input_type -> task.v1.RemoveLabelFromTaskRequest
-	0,  // 22: task.v1.BoardService.CreateTask:output_type -> task.v1.Task
-	0,  // 23: task.v1.BoardService.GetTask:output_type -> task.v1.Task
-	0,  // 24: task.v1.BoardService.UpdateTask:output_type -> task.v1.Task
-	19, // 25: task.v1.BoardService.DeleteTask:output_type -> google.protobuf.Empty
-	0,  // 26: task.v1.BoardService.MoveTask:output_type -> task.v1.Task
-	0,  // 27: task.v1.BoardService.AssignUser:output_type -> task.v1.Task
-	0,  // 28: task.v1.BoardService.UnassignUser:output_type -> task.v1.Task
-	17, // 29: task.v1.BoardService.GetTasksForLists:output_type -> task.v1.GetTasksForListsResponse
-	10, // 30: task.v1.BoardService.GetTasksForUser:output_type -> task.v1.GetTasksForUserResponse
-	1,  // 31: task.v1.BoardService.CreateLabel:output_type -> task.v1.Label
-	1,  // 32: task.v1.BoardService.UpdateLabel:output_type -> task.v1.Label
-	19, // 33: task.v1.BoardService.DeleteLabel:output_type -> google.protobuf.Empty
-	19, // 34: task.v1.BoardService.AddLabelToTask:output_type -> google.protobuf.Empty
-	19, // 35: task.v1.BoardService.RemoveLabelFromTask:output_type -> google.protobuf.Empty
+	2,  // 8: task.v1.TaskService.CreateTask:input_type -> task.v1.CreateTaskRequest
+	3,  // 9: task.v1.TaskService.GetTask:input_type -> task.v1.GetTaskRequest
+	4,  // 10: task.v1.TaskService.UpdateTask:input_type -> task.v1.UpdateTaskRequest
+	5,  // 11: task.v1.TaskService.DeleteTask:input_type -> task.v1.DeleteTaskRequest
+	6,  // 12: task.v1.TaskService.MoveTask:input_type -> task.v1.MoveTaskRequest
+	7,  // 13: task.v1.TaskService.AssignUser:input_type -> task.v1.AssignUserRequest
+	8,  // 14: task.v1.TaskService.UnassignUser:input_type -> task.v1.UnassignUserRequest
+	16, // 15: task.v1.TaskService.GetTasksForLists:input_type -> task.v1.GetTasksForListsRequest
+	9,  // 16: task.v1.TaskService.GetTasksForUser:input_type -> task.v1.GetTasksForUserRequest
+	11, // 17: task.v1.TaskService.CreateLabel:input_type -> task.v1.CreateLabelRequest
+	12, // 18: task.v1.TaskService.UpdateLabel:input_type -> task.v1.UpdateLabelRequest
+	13, // 19: task.v1.TaskService.DeleteLabel:input_type -> task.v1.DeleteLabelRequest
+	14, // 20: task.v1.TaskService.AddLabelToTask:input_type -> task.v1.AddLabelToTaskRequest
+	15, // 21: task.v1.TaskService.RemoveLabelFromTask:input_type -> task.v1.RemoveLabelFromTaskRequest
+	0,  // 22: task.v1.TaskService.CreateTask:output_type -> task.v1.Task
+	0,  // 23: task.v1.TaskService.GetTask:output_type -> task.v1.Task
+	0,  // 24: task.v1.TaskService.UpdateTask:output_type -> task.v1.Task
+	19, // 25: task.v1.TaskService.DeleteTask:output_type -> google.protobuf.Empty
+	0,  // 26: task.v1.TaskService.MoveTask:output_type -> task.v1.Task
+	0,  // 27: task.v1.TaskService.AssignUser:output_type -> task.v1.Task
+	0,  // 28: task.v1.TaskService.UnassignUser:output_type -> task.v1.Task
+	17, // 29: task.v1.TaskService.GetTasksForLists:output_type -> task.v1.GetTasksForListsResponse
+	10, // 30: task.v1.TaskService.GetTasksForUser:output_type -> task.v1.GetTasksForUserResponse
+	1,  // 31: task.v1.TaskService.CreateLabel:output_type -> task.v1.Label
+	1,  // 32: task.v1.TaskService.UpdateLabel:output_type -> task.v1.Label
+	19, // 33: task.v1.TaskService.DeleteLabel:output_type -> google.protobuf.Empty
+	19, // 34: task.v1.TaskService.AddLabelToTask:output_type -> google.protobuf.Empty
+	19, // 35: task.v1.TaskService.RemoveLabelFromTask:output_type -> google.protobuf.Empty
 	22, // [22:36] is the sub-list for method output_type
 	8,  // [8:22] is the sub-list for method input_type
 	8,  // [8:8] is the sub-list for extension type_name
