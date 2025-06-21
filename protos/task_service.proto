@@ -7,7 +7,7 @@ option go_package = "shiroyama.task.v1;taskv1";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 
-service BoardService {
+service TaskService {
   rpc CreateTask(CreateTaskRequest) returns (Task);
   rpc GetTask(GetTaskRequest) returns (Task);
   rpc UpdateTask(UpdateTaskRequest) returns (Task);

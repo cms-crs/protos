@@ -20,26 +20,26 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	BoardService_CreateTask_FullMethodName          = "/task.v1.BoardService/CreateTask"
-	BoardService_GetTask_FullMethodName             = "/task.v1.BoardService/GetTask"
-	BoardService_UpdateTask_FullMethodName          = "/task.v1.BoardService/UpdateTask"
-	BoardService_DeleteTask_FullMethodName          = "/task.v1.BoardService/DeleteTask"
-	BoardService_MoveTask_FullMethodName            = "/task.v1.BoardService/MoveTask"
-	BoardService_AssignUser_FullMethodName          = "/task.v1.BoardService/AssignUser"
-	BoardService_UnassignUser_FullMethodName        = "/task.v1.BoardService/UnassignUser"
-	BoardService_GetTasksForLists_FullMethodName    = "/task.v1.BoardService/GetTasksForLists"
-	BoardService_GetTasksForUser_FullMethodName     = "/task.v1.BoardService/GetTasksForUser"
-	BoardService_CreateLabel_FullMethodName         = "/task.v1.BoardService/CreateLabel"
-	BoardService_UpdateLabel_FullMethodName         = "/task.v1.BoardService/UpdateLabel"
-	BoardService_DeleteLabel_FullMethodName         = "/task.v1.BoardService/DeleteLabel"
-	BoardService_AddLabelToTask_FullMethodName      = "/task.v1.BoardService/AddLabelToTask"
-	BoardService_RemoveLabelFromTask_FullMethodName = "/task.v1.BoardService/RemoveLabelFromTask"
+	TaskService_CreateTask_FullMethodName          = "/task.v1.TaskService/CreateTask"
+	TaskService_GetTask_FullMethodName             = "/task.v1.TaskService/GetTask"
+	TaskService_UpdateTask_FullMethodName          = "/task.v1.TaskService/UpdateTask"
+	TaskService_DeleteTask_FullMethodName          = "/task.v1.TaskService/DeleteTask"
+	TaskService_MoveTask_FullMethodName            = "/task.v1.TaskService/MoveTask"
+	TaskService_AssignUser_FullMethodName          = "/task.v1.TaskService/AssignUser"
+	TaskService_UnassignUser_FullMethodName        = "/task.v1.TaskService/UnassignUser"
+	TaskService_GetTasksForLists_FullMethodName    = "/task.v1.TaskService/GetTasksForLists"
+	TaskService_GetTasksForUser_FullMethodName     = "/task.v1.TaskService/GetTasksForUser"
+	TaskService_CreateLabel_FullMethodName         = "/task.v1.TaskService/CreateLabel"
+	TaskService_UpdateLabel_FullMethodName         = "/task.v1.TaskService/UpdateLabel"
+	TaskService_DeleteLabel_FullMethodName         = "/task.v1.TaskService/DeleteLabel"
+	TaskService_AddLabelToTask_FullMethodName      = "/task.v1.TaskService/AddLabelToTask"
+	TaskService_RemoveLabelFromTask_FullMethodName = "/task.v1.TaskService/RemoveLabelFromTask"
 )
 
-// BoardServiceClient is the client API for BoardService service.
+// TaskServiceClient is the client API for TaskService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BoardServiceClient interface {
+type TaskServiceClient interface {
 	CreateTask(ctx context.Context, in *CreateTaskRequest, opts ...grpc.CallOption) (*Task, error)
 	GetTask(ctx context.Context, in *GetTaskRequest, opts ...grpc.CallOption) (*Task, error)
 	UpdateTask(ctx context.Context, in *UpdateTaskRequest, opts ...grpc.CallOption) (*Task, error)
@@ -56,158 +56,158 @@ type BoardServiceClient interface {
 	RemoveLabelFromTask(ctx context.Context, in *RemoveLabelFromTaskRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
-type boardServiceClient struct {
+type taskServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewBoardServiceClient(cc grpc.ClientConnInterface) BoardServiceClient {
-	return &boardServiceClient{cc}
+func NewTaskServiceClient(cc grpc.ClientConnInterface) TaskServiceClient {
+	return &taskServiceClient{cc}
 }
 
-func (c *boardServiceClient) CreateTask(ctx context.Context, in *CreateTaskRequest, opts ...grpc.CallOption) (*Task, error) {
+func (c *taskServiceClient) CreateTask(ctx context.Context, in *CreateTaskRequest, opts ...grpc.CallOption) (*Task, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Task)
-	err := c.cc.Invoke(ctx, BoardService_CreateTask_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, TaskService_CreateTask_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *boardServiceClient) GetTask(ctx context.Context, in *GetTaskRequest, opts ...grpc.CallOption) (*Task, error) {
+func (c *taskServiceClient) GetTask(ctx context.Context, in *GetTaskRequest, opts ...grpc.CallOption) (*Task, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Task)
-	err := c.cc.Invoke(ctx, BoardService_GetTask_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, TaskService_GetTask_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *boardServiceClient) UpdateTask(ctx context.Context, in *UpdateTaskRequest, opts ...grpc.CallOption) (*Task, error) {
+func (c *taskServiceClient) UpdateTask(ctx context.Context, in *UpdateTaskRequest, opts ...grpc.CallOption) (*Task, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Task)
-	err := c.cc.Invoke(ctx, BoardService_UpdateTask_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, TaskService_UpdateTask_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *boardServiceClient) DeleteTask(ctx context.Context, in *DeleteTaskRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *taskServiceClient) DeleteTask(ctx context.Context, in *DeleteTaskRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, BoardService_DeleteTask_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, TaskService_DeleteTask_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *boardServiceClient) MoveTask(ctx context.Context, in *MoveTaskRequest, opts ...grpc.CallOption) (*Task, error) {
+func (c *taskServiceClient) MoveTask(ctx context.Context, in *MoveTaskRequest, opts ...grpc.CallOption) (*Task, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Task)
-	err := c.cc.Invoke(ctx, BoardService_MoveTask_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, TaskService_MoveTask_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *boardServiceClient) AssignUser(ctx context.Context, in *AssignUserRequest, opts ...grpc.CallOption) (*Task, error) {
+func (c *taskServiceClient) AssignUser(ctx context.Context, in *AssignUserRequest, opts ...grpc.CallOption) (*Task, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Task)
-	err := c.cc.Invoke(ctx, BoardService_AssignUser_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, TaskService_AssignUser_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *boardServiceClient) UnassignUser(ctx context.Context, in *UnassignUserRequest, opts ...grpc.CallOption) (*Task, error) {
+func (c *taskServiceClient) UnassignUser(ctx context.Context, in *UnassignUserRequest, opts ...grpc.CallOption) (*Task, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Task)
-	err := c.cc.Invoke(ctx, BoardService_UnassignUser_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, TaskService_UnassignUser_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *boardServiceClient) GetTasksForLists(ctx context.Context, in *GetTasksForListsRequest, opts ...grpc.CallOption) (*GetTasksForListsResponse, error) {
+func (c *taskServiceClient) GetTasksForLists(ctx context.Context, in *GetTasksForListsRequest, opts ...grpc.CallOption) (*GetTasksForListsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTasksForListsResponse)
-	err := c.cc.Invoke(ctx, BoardService_GetTasksForLists_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, TaskService_GetTasksForLists_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *boardServiceClient) GetTasksForUser(ctx context.Context, in *GetTasksForUserRequest, opts ...grpc.CallOption) (*GetTasksForUserResponse, error) {
+func (c *taskServiceClient) GetTasksForUser(ctx context.Context, in *GetTasksForUserRequest, opts ...grpc.CallOption) (*GetTasksForUserResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTasksForUserResponse)
-	err := c.cc.Invoke(ctx, BoardService_GetTasksForUser_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, TaskService_GetTasksForUser_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *boardServiceClient) CreateLabel(ctx context.Context, in *CreateLabelRequest, opts ...grpc.CallOption) (*Label, error) {
+func (c *taskServiceClient) CreateLabel(ctx context.Context, in *CreateLabelRequest, opts ...grpc.CallOption) (*Label, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Label)
-	err := c.cc.Invoke(ctx, BoardService_CreateLabel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, TaskService_CreateLabel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *boardServiceClient) UpdateLabel(ctx context.Context, in *UpdateLabelRequest, opts ...grpc.CallOption) (*Label, error) {
+func (c *taskServiceClient) UpdateLabel(ctx context.Context, in *UpdateLabelRequest, opts ...grpc.CallOption) (*Label, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Label)
-	err := c.cc.Invoke(ctx, BoardService_UpdateLabel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, TaskService_UpdateLabel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *boardServiceClient) DeleteLabel(ctx context.Context, in *DeleteLabelRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *taskServiceClient) DeleteLabel(ctx context.Context, in *DeleteLabelRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, BoardService_DeleteLabel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, TaskService_DeleteLabel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *boardServiceClient) AddLabelToTask(ctx context.Context, in *AddLabelToTaskRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *taskServiceClient) AddLabelToTask(ctx context.Context, in *AddLabelToTaskRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, BoardService_AddLabelToTask_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, TaskService_AddLabelToTask_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *boardServiceClient) RemoveLabelFromTask(ctx context.Context, in *RemoveLabelFromTaskRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *taskServiceClient) RemoveLabelFromTask(ctx context.Context, in *RemoveLabelFromTaskRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, BoardService_RemoveLabelFromTask_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, TaskService_RemoveLabelFromTask_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// BoardServiceServer is the server API for BoardService service.
-// All implementations must embed UnimplementedBoardServiceServer
+// TaskServiceServer is the server API for TaskService service.
+// All implementations must embed UnimplementedTaskServiceServer
 // for forward compatibility.
-type BoardServiceServer interface {
+type TaskServiceServer interface {
 	CreateTask(context.Context, *CreateTaskRequest) (*Task, error)
 	GetTask(context.Context, *GetTaskRequest) (*Task, error)
 	UpdateTask(context.Context, *UpdateTaskRequest) (*Task, error)
@@ -222,393 +222,393 @@ type BoardServiceServer interface {
 	DeleteLabel(context.Context, *DeleteLabelRequest) (*emptypb.Empty, error)
 	AddLabelToTask(context.Context, *AddLabelToTaskRequest) (*emptypb.Empty, error)
 	RemoveLabelFromTask(context.Context, *RemoveLabelFromTaskRequest) (*emptypb.Empty, error)
-	mustEmbedUnimplementedBoardServiceServer()
+	mustEmbedUnimplementedTaskServiceServer()
 }
 
-// UnimplementedBoardServiceServer must be embedded to have
+// UnimplementedTaskServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedBoardServiceServer struct{}
+type UnimplementedTaskServiceServer struct{}
 
-func (UnimplementedBoardServiceServer) CreateTask(context.Context, *CreateTaskRequest) (*Task, error) {
+func (UnimplementedTaskServiceServer) CreateTask(context.Context, *CreateTaskRequest) (*Task, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTask not implemented")
 }
-func (UnimplementedBoardServiceServer) GetTask(context.Context, *GetTaskRequest) (*Task, error) {
+func (UnimplementedTaskServiceServer) GetTask(context.Context, *GetTaskRequest) (*Task, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTask not implemented")
 }
-func (UnimplementedBoardServiceServer) UpdateTask(context.Context, *UpdateTaskRequest) (*Task, error) {
+func (UnimplementedTaskServiceServer) UpdateTask(context.Context, *UpdateTaskRequest) (*Task, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateTask not implemented")
 }
-func (UnimplementedBoardServiceServer) DeleteTask(context.Context, *DeleteTaskRequest) (*emptypb.Empty, error) {
+func (UnimplementedTaskServiceServer) DeleteTask(context.Context, *DeleteTaskRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTask not implemented")
 }
-func (UnimplementedBoardServiceServer) MoveTask(context.Context, *MoveTaskRequest) (*Task, error) {
+func (UnimplementedTaskServiceServer) MoveTask(context.Context, *MoveTaskRequest) (*Task, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method MoveTask not implemented")
 }
-func (UnimplementedBoardServiceServer) AssignUser(context.Context, *AssignUserRequest) (*Task, error) {
+func (UnimplementedTaskServiceServer) AssignUser(context.Context, *AssignUserRequest) (*Task, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AssignUser not implemented")
 }
-func (UnimplementedBoardServiceServer) UnassignUser(context.Context, *UnassignUserRequest) (*Task, error) {
+func (UnimplementedTaskServiceServer) UnassignUser(context.Context, *UnassignUserRequest) (*Task, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UnassignUser not implemented")
 }
-func (UnimplementedBoardServiceServer) GetTasksForLists(context.Context, *GetTasksForListsRequest) (*GetTasksForListsResponse, error) {
+func (UnimplementedTaskServiceServer) GetTasksForLists(context.Context, *GetTasksForListsRequest) (*GetTasksForListsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTasksForLists not implemented")
 }
-func (UnimplementedBoardServiceServer) GetTasksForUser(context.Context, *GetTasksForUserRequest) (*GetTasksForUserResponse, error) {
+func (UnimplementedTaskServiceServer) GetTasksForUser(context.Context, *GetTasksForUserRequest) (*GetTasksForUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTasksForUser not implemented")
 }
-func (UnimplementedBoardServiceServer) CreateLabel(context.Context, *CreateLabelRequest) (*Label, error) {
+func (UnimplementedTaskServiceServer) CreateLabel(context.Context, *CreateLabelRequest) (*Label, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateLabel not implemented")
 }
-func (UnimplementedBoardServiceServer) UpdateLabel(context.Context, *UpdateLabelRequest) (*Label, error) {
+func (UnimplementedTaskServiceServer) UpdateLabel(context.Context, *UpdateLabelRequest) (*Label, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateLabel not implemented")
 }
-func (UnimplementedBoardServiceServer) DeleteLabel(context.Context, *DeleteLabelRequest) (*emptypb.Empty, error) {
+func (UnimplementedTaskServiceServer) DeleteLabel(context.Context, *DeleteLabelRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteLabel not implemented")
 }
-func (UnimplementedBoardServiceServer) AddLabelToTask(context.Context, *AddLabelToTaskRequest) (*emptypb.Empty, error) {
+func (UnimplementedTaskServiceServer) AddLabelToTask(context.Context, *AddLabelToTaskRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddLabelToTask not implemented")
 }
-func (UnimplementedBoardServiceServer) RemoveLabelFromTask(context.Context, *RemoveLabelFromTaskRequest) (*emptypb.Empty, error) {
+func (UnimplementedTaskServiceServer) RemoveLabelFromTask(context.Context, *RemoveLabelFromTaskRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveLabelFromTask not implemented")
 }
-func (UnimplementedBoardServiceServer) mustEmbedUnimplementedBoardServiceServer() {}
-func (UnimplementedBoardServiceServer) testEmbeddedByValue()                      {}
+func (UnimplementedTaskServiceServer) mustEmbedUnimplementedTaskServiceServer() {}
+func (UnimplementedTaskServiceServer) testEmbeddedByValue()                     {}
 
-// UnsafeBoardServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BoardServiceServer will
+// UnsafeTaskServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TaskServiceServer will
 // result in compilation errors.
-type UnsafeBoardServiceServer interface {
-	mustEmbedUnimplementedBoardServiceServer()
+type UnsafeTaskServiceServer interface {
+	mustEmbedUnimplementedTaskServiceServer()
 }
 
-func RegisterBoardServiceServer(s grpc.ServiceRegistrar, srv BoardServiceServer) {
-	// If the following call pancis, it indicates UnimplementedBoardServiceServer was
+func RegisterTaskServiceServer(s grpc.ServiceRegistrar, srv TaskServiceServer) {
+	// If the following call pancis, it indicates UnimplementedTaskServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&BoardService_ServiceDesc, srv)
+	s.RegisterService(&TaskService_ServiceDesc, srv)
 }
 
-func _BoardService_CreateTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_CreateTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BoardServiceServer).CreateTask(ctx, in)
+		return srv.(TaskServiceServer).CreateTask(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BoardService_CreateTask_FullMethodName,
+		FullMethod: TaskService_CreateTask_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).CreateTask(ctx, req.(*CreateTaskRequest))
+		return srv.(TaskServiceServer).CreateTask(ctx, req.(*CreateTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BoardService_GetTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_GetTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BoardServiceServer).GetTask(ctx, in)
+		return srv.(TaskServiceServer).GetTask(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BoardService_GetTask_FullMethodName,
+		FullMethod: TaskService_GetTask_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).GetTask(ctx, req.(*GetTaskRequest))
+		return srv.(TaskServiceServer).GetTask(ctx, req.(*GetTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BoardService_UpdateTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_UpdateTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BoardServiceServer).UpdateTask(ctx, in)
+		return srv.(TaskServiceServer).UpdateTask(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BoardService_UpdateTask_FullMethodName,
+		FullMethod: TaskService_UpdateTask_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).UpdateTask(ctx, req.(*UpdateTaskRequest))
+		return srv.(TaskServiceServer).UpdateTask(ctx, req.(*UpdateTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BoardService_DeleteTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_DeleteTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BoardServiceServer).DeleteTask(ctx, in)
+		return srv.(TaskServiceServer).DeleteTask(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BoardService_DeleteTask_FullMethodName,
+		FullMethod: TaskService_DeleteTask_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).DeleteTask(ctx, req.(*DeleteTaskRequest))
+		return srv.(TaskServiceServer).DeleteTask(ctx, req.(*DeleteTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BoardService_MoveTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_MoveTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(MoveTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BoardServiceServer).MoveTask(ctx, in)
+		return srv.(TaskServiceServer).MoveTask(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BoardService_MoveTask_FullMethodName,
+		FullMethod: TaskService_MoveTask_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).MoveTask(ctx, req.(*MoveTaskRequest))
+		return srv.(TaskServiceServer).MoveTask(ctx, req.(*MoveTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BoardService_AssignUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_AssignUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AssignUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BoardServiceServer).AssignUser(ctx, in)
+		return srv.(TaskServiceServer).AssignUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BoardService_AssignUser_FullMethodName,
+		FullMethod: TaskService_AssignUser_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).AssignUser(ctx, req.(*AssignUserRequest))
+		return srv.(TaskServiceServer).AssignUser(ctx, req.(*AssignUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BoardService_UnassignUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_UnassignUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UnassignUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BoardServiceServer).UnassignUser(ctx, in)
+		return srv.(TaskServiceServer).UnassignUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BoardService_UnassignUser_FullMethodName,
+		FullMethod: TaskService_UnassignUser_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).UnassignUser(ctx, req.(*UnassignUserRequest))
+		return srv.(TaskServiceServer).UnassignUser(ctx, req.(*UnassignUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BoardService_GetTasksForLists_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_GetTasksForLists_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetTasksForListsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BoardServiceServer).GetTasksForLists(ctx, in)
+		return srv.(TaskServiceServer).GetTasksForLists(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BoardService_GetTasksForLists_FullMethodName,
+		FullMethod: TaskService_GetTasksForLists_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).GetTasksForLists(ctx, req.(*GetTasksForListsRequest))
+		return srv.(TaskServiceServer).GetTasksForLists(ctx, req.(*GetTasksForListsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BoardService_GetTasksForUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_GetTasksForUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetTasksForUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BoardServiceServer).GetTasksForUser(ctx, in)
+		return srv.(TaskServiceServer).GetTasksForUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BoardService_GetTasksForUser_FullMethodName,
+		FullMethod: TaskService_GetTasksForUser_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).GetTasksForUser(ctx, req.(*GetTasksForUserRequest))
+		return srv.(TaskServiceServer).GetTasksForUser(ctx, req.(*GetTasksForUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BoardService_CreateLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_CreateLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateLabelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BoardServiceServer).CreateLabel(ctx, in)
+		return srv.(TaskServiceServer).CreateLabel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BoardService_CreateLabel_FullMethodName,
+		FullMethod: TaskService_CreateLabel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).CreateLabel(ctx, req.(*CreateLabelRequest))
+		return srv.(TaskServiceServer).CreateLabel(ctx, req.(*CreateLabelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BoardService_UpdateLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_UpdateLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateLabelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BoardServiceServer).UpdateLabel(ctx, in)
+		return srv.(TaskServiceServer).UpdateLabel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BoardService_UpdateLabel_FullMethodName,
+		FullMethod: TaskService_UpdateLabel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).UpdateLabel(ctx, req.(*UpdateLabelRequest))
+		return srv.(TaskServiceServer).UpdateLabel(ctx, req.(*UpdateLabelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BoardService_DeleteLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_DeleteLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteLabelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BoardServiceServer).DeleteLabel(ctx, in)
+		return srv.(TaskServiceServer).DeleteLabel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BoardService_DeleteLabel_FullMethodName,
+		FullMethod: TaskService_DeleteLabel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).DeleteLabel(ctx, req.(*DeleteLabelRequest))
+		return srv.(TaskServiceServer).DeleteLabel(ctx, req.(*DeleteLabelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BoardService_AddLabelToTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_AddLabelToTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddLabelToTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BoardServiceServer).AddLabelToTask(ctx, in)
+		return srv.(TaskServiceServer).AddLabelToTask(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BoardService_AddLabelToTask_FullMethodName,
+		FullMethod: TaskService_AddLabelToTask_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).AddLabelToTask(ctx, req.(*AddLabelToTaskRequest))
+		return srv.(TaskServiceServer).AddLabelToTask(ctx, req.(*AddLabelToTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BoardService_RemoveLabelFromTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_RemoveLabelFromTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RemoveLabelFromTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BoardServiceServer).RemoveLabelFromTask(ctx, in)
+		return srv.(TaskServiceServer).RemoveLabelFromTask(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BoardService_RemoveLabelFromTask_FullMethodName,
+		FullMethod: TaskService_RemoveLabelFromTask_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BoardServiceServer).RemoveLabelFromTask(ctx, req.(*RemoveLabelFromTaskRequest))
+		return srv.(TaskServiceServer).RemoveLabelFromTask(ctx, req.(*RemoveLabelFromTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// BoardService_ServiceDesc is the grpc.ServiceDesc for BoardService service.
+// TaskService_ServiceDesc is the grpc.ServiceDesc for TaskService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var BoardService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "task.v1.BoardService",
-	HandlerType: (*BoardServiceServer)(nil),
+var TaskService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "task.v1.TaskService",
+	HandlerType: (*TaskServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "CreateTask",
-			Handler:    _BoardService_CreateTask_Handler,
+			Handler:    _TaskService_CreateTask_Handler,
 		},
 		{
 			MethodName: "GetTask",
-			Handler:    _BoardService_GetTask_Handler,
+			Handler:    _TaskService_GetTask_Handler,
 		},
 		{
 			MethodName: "UpdateTask",
-			Handler:    _BoardService_UpdateTask_Handler,
+			Handler:    _TaskService_UpdateTask_Handler,
 		},
 		{
 			MethodName: "DeleteTask",
-			Handler:    _BoardService_DeleteTask_Handler,
+			Handler:    _TaskService_DeleteTask_Handler,
 		},
 		{
 			MethodName: "MoveTask",
-			Handler:    _BoardService_MoveTask_Handler,
+			Handler:    _TaskService_MoveTask_Handler,
 		},
 		{
 			MethodName: "AssignUser",
-			Handler:    _BoardService_AssignUser_Handler,
+			Handler:    _TaskService_AssignUser_Handler,
 		},
 		{
 			MethodName: "UnassignUser",
-			Handler:    _BoardService_UnassignUser_Handler,
+			Handler:    _TaskService_UnassignUser_Handler,
 		},
 		{
 			MethodName: "GetTasksForLists",
-			Handler:    _BoardService_GetTasksForLists_Handler,
+			Handler:    _TaskService_GetTasksForLists_Handler,
 		},
 		{
 			MethodName: "GetTasksForUser",
-			Handler:    _BoardService_GetTasksForUser_Handler,
+			Handler:    _TaskService_GetTasksForUser_Handler,
 		},
 		{
 			MethodName: "CreateLabel",
-			Handler:    _BoardService_CreateLabel_Handler,
+			Handler:    _TaskService_CreateLabel_Handler,
 		},
 		{
 			MethodName: "UpdateLabel",
-			Handler:    _BoardService_UpdateLabel_Handler,
+			Handler:    _TaskService_UpdateLabel_Handler,
 		},
 		{
 			MethodName: "DeleteLabel",
-			Handler:    _BoardService_DeleteLabel_Handler,
+			Handler:    _TaskService_DeleteLabel_Handler,
 		},
 		{
 			MethodName: "AddLabelToTask",
-			Handler:    _BoardService_AddLabelToTask_Handler,
+			Handler:    _TaskService_AddLabelToTask_Handler,
 		},
 		{
 			MethodName: "RemoveLabelFromTask",
-			Handler:    _BoardService_RemoveLabelFromTask_Handler,
+			Handler:    _TaskService_RemoveLabelFromTask_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
